@@ -22,7 +22,7 @@ GoogleSignin.configure({
 
 function App() {
   const [phoneNumber, setPhoneNumber] = useState('');
-  const {SimCardModule} = NativeModules;
+  const {SimCardModule, NewSimCard} = NativeModules;
 
   const handlePhoneNumbersReceived = phoneNumbers => {
     console.log('Phone Numbers:', phoneNumbers);
@@ -34,18 +34,28 @@ function App() {
       'onPhoneNumbersReceived',
       handlePhoneNumbersReceived,
     );
+
+    // Cleanup the listener on component unmount
+    return () => {
+      DeviceEventEmitter.removeListener(
+        'onPhoneNumbersReceived',
+        handlePhoneNumbersReceived,
+      );
+    };
   }, []);
 
   const getSimData = async () => {
     try {
       const apiLevel = await DeviceInfo.getApiLevel();
 
-      if (apiLevel !== 33) return;
+      if (apiLevel === 33) return;
 
-      const result = await SimCardModule.getSimCardInfo();
-      console.log('SIM Card Information:', result);
-      if (result.length) {
-        // setLoginInfo(result); // loginInfo variable not defined in your code
+      if (!loginInfo.length) {
+        const result = await SimCardModule.getSimCardInfo();
+        console.log('SIM Card Information:', result);
+        if (result.length) {
+          setLoginInfo(result);
+        }
       }
     } catch (error) {
       console.error('Error retrieving SIM card information:', error);
@@ -71,10 +81,10 @@ function App() {
   };
 
   const getNumber = async () => {
-    DeviceNumber.get().then(res => {
-      setPhoneNumber(res.mobileNumber);
-      console.log(res);
-    });
+    // DeviceNumber.get().then(res => {
+    //   setPhoneNumber(res.mobileNumber);
+    //   console.log(res);
+    // });
   };
 
   return (
