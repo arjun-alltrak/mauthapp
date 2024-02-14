@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "963921972784",
+    "project_id": "rn-social-login-app-7a743",
+    "storage_bucket": "rn-social-login-app-7a743.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963921972784:android:2caa30f9cb7a79934427f5",
+        "android_client_info": {
+          "package_name": "com.mauthapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963921972784-m3igm6luebs2bbbrcogfddli6m4vpfem.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mauthapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "963921972784-6ododnqjsrlgtjkis041obnj5285vkcn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE5oGNLm64nlxaW-KydO7yAK_3sdXk_ds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963921972784-6ododnqjsrlgtjkis041obnj5285vkcn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
