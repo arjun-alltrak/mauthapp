@@ -21,6 +21,8 @@ public class MyAppPackage implements ReactPackage {
        List<NativeModule> modules = new ArrayList<>();
 
        modules.add(new CalendarModule(reactContext));
+       modules.add(new NewSimCard(reactContext));
+       modules.add(new SimCardModule(reactContext));
 
        return modules;
    }
